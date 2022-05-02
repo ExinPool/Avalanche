@@ -14,12 +14,11 @@ source config.shlib
 
 # load configuration
 service="$(config_get SERVICE)"
-healthy_vaule="$(config_get HEALTHY_VALUE)"
 healthy_vaule_var=`curl -s -X POST --data '{"jsonrpc":"2.0","id":1,"method" :"health.health"}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/health | jq | grep healthy | awk -F':' '{print $2}' | sed "s/,//g" | sed 's/"//g' | sed "s/ //g"`
 log_file="$(config_get LOG_FILE)"
 lark_webhook_url="$(config_get LARK_WEBHOOK_URL)"
 
-if [ ${healthy_vaule} -eq ${healthy_vaule_var} ]
+if [ ${healthy_vaule_var} = true ]
 then
     log="`date '+%Y-%m-%d %H:%M:%S'` UTC `hostname` `whoami` INFO ${service} node process is normal."
     echo $log >> $log_file
