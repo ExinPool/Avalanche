@@ -1,4 +1,5 @@
 SERVICE=Avalanche
-HEALTHY_VALUE=true
-LOG_FILE=avalanche_healthy.log
+PROCESS=9650
+PROCESS_NUM=1
+LOG_FILE=avalanche_process.log
 LARK_WEBHOOK_URL=https://open.larksuite.com/open-apis/bot/v2/hook/
