@@ -1,0 +1,4 @@
+SERVICE=Avalanche
+HEALTHY_VALUE=true
+LOG_FILE=avalanche_healthy.log
+LARK_WEBHOOK_URL=https://open.larksuite.com/open-apis/bot/v2/hook/
